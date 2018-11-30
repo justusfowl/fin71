@@ -14,12 +14,7 @@ export class ConfigService {
   private apiBase : string = "/api/v";
   private apiProtocol : string = 'https';
 
-  // Needed for Auth0 (capitalization: ID):
-  clientID: string;
-  // Needed for Auth0Cordova (capitalization: Id):
-  clientId: string;
-  domain: string;
-  packageIdentifier: string; // config.xml widget ID, e.g., com.auth0.ionic
+  auth0Config : any;
 
   public appVersionNo : string;
 
@@ -33,10 +28,7 @@ export class ConfigService {
     this.hostPort = ENV.hostPort;
     this.apiVersion = ENV.apiVersion;
 
-    this.clientId = ENV.clientId; 
-    this.clientID = ENV.clientID;
-    this.domain = ENV.domain; 
-    this.packageIdentifier = ENV.packageIdentifier;
+    this.auth0Config = ENV.auth0Config;
 
     platform.ready().then(() => {
 

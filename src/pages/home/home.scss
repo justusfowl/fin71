@@ -266,6 +266,13 @@ page-home {
         border-radius: 4px;
     }
 
+    .expenseTitle{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
     .type-container{
         height: 10vh; 
         width: 100vw; 

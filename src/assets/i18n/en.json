@@ -1,7 +1,10 @@
 {
   "BACK_BUTTON_TEXT": "Back",
   "SAVE" : "Save", 
-  "LOGOUT" : "Logoff", 
+  "MENU_LOGOUT" : "Logoff", 
+  "LOGIN_BUTTON": "Login",
+  "LOGIN_PASSWORD" : "Passwort",
+  
   "CATEGORIES" : "Categories",
   "PROJECTS" : "Projects",
   "TITLE" : "Title",

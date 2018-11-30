@@ -18,8 +18,12 @@
           {{p.title  | translate}}
       </div>
 
-      <div class="menu-itm end" menuClose (click)="logOut()">
-          {{'LOGOUT' | translate}}
+      <div class="menu-itm end" menuClose  *ngIf="auth.getAuthStatus()" (click)="logOut()">
+          {{'MENU_LOGOUT' | translate}}
+      </div>
+
+      <div class="menu-itm end" menuClose  *ngIf="!auth.getAuthStatus()" (click)="goToLogin()">
+          {{'MENU_LOGIN' | translate}}
       </div>
 
     </div>

@@ -32,6 +32,8 @@ export class HomePage implements OnInit{
   public selectedTypeIndex = 0; 
   public selectedType : Type;
 
+  public expenseTitle : string = ""; 
+
   public selectedCurrency : any = {
     "currId" : 1,
     "val" : "EUR", 
@@ -214,6 +216,7 @@ export class HomePage implements OnInit{
     }, 1000)
 
     this.amount = "0";
+    this.expenseTitle = ""; 
   }
 
   addTransaction(){
@@ -228,7 +231,7 @@ export class HomePage implements OnInit{
         projectId : this.selectedProject.projectId,
         typeId : this.selectedType.typeId,
         transactionCurOrig : this.selectedCurrency.val, 
-        transactionTitle : "Test", 
+        transactionTitle : this.expenseTitle, 
         transactionAmtOrig : amount
       })
 

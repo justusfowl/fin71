@@ -1,7 +1,9 @@
 {
   "BACK_BUTTON_TEXT": "Zurück",
   "SAVE" : "Speichern", 
-  "LOGOUT" : "Abmelden", 
+  "MENU_LOGOUT" : "Abmelden", 
+  "LOGIN_BUTTON": "Login",
+  "LOGIN_PASSWORD" : "Passwort",
 
   "MENU_HOME" : "Start", 
   "MENU_EXPENSE" : "Ausgaben", 

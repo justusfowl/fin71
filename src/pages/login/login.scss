@@ -2,10 +2,14 @@
 
 page-login {
 
-    .content, .content-ios{
-        background-color: gray;
-        background-image: url('../assets/img/overlay.png');
-      }
+    .item{
+        background-color: unset !important;
+    }
+
+    .label{
+        color: #212435;
+    }
+
 
     overflow-y: hidden;
 
@@ -29,16 +33,33 @@ page-login {
         opacity: 0.8;
     } 
 
-    .comfash-logo{
+    .fin71-logo{
         position: absolute;
         top: 0;
         margin: auto;
-        z-index: 9;
-        background: url('../assets/img/cf_logo_pink.png') no-repeat transparent;
-        background-size: 70%;
-        background-position: center center;
-        width: 100%;
-        height: 40%;
+        z-index: 5;
+        padding: 20px; 
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fin71-logo .main {
+        font-weight: 100; 
+        font-size: 80px; 
+        opacity: 0.7;
+        color: #B8D8D8;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .fin71-logo .slogan{
+        font-size: 15px; 
+        color: #212435;
+        text-align: center;
+        opacity: 0.6;
     }
 
     .footer-signup{
@@ -46,6 +67,10 @@ page-login {
         bottom: 1%;
         text-align: center;
         z-index: 5;
+    }
+
+    .login-form{
+        height: 40vh; 
     }
 
     .login-form.invalid {

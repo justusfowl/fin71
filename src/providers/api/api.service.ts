@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
-import { AuthService } from '../auth/auth.service';
 import { ConfigService } from '../config/config.service';
 
 import { Transaction } from '../../models/transaction';
@@ -15,8 +14,7 @@ export class ApiService {
 
   constructor(
     public http: HttpClient, 
-    public config: ConfigService, 
-    private auth: AuthService
+    public config: ConfigService
   ) { 
     this.url = this.config.getAPIBase();
   }
@@ -55,8 +53,6 @@ export class ApiService {
     if (!queryParams){
       queryParams = new HttpParams();
     }
-
-    let userId = this.auth.userId; 
   
     return this.http.get(this.url + "/projects", {params: queryParams});
   }
@@ -79,8 +75,6 @@ export class ApiService {
   }
 
   getTypes(){
-
-    let userId = this.auth.userId; 
   
     return this.http.get(this.url + "/types");
 
@@ -127,14 +121,6 @@ export class ApiService {
 
   getAnalysisTypes(projectId : number){
 
-    let testData1 = [
-      {"time":"Mar 2017","type":"Halobacillus halophilus","sumTransactionsEur":"7.76","err":"0.08072307587277215"},
-      {"time":"Mar 2017","type":"Bacillus subtilis","sumTransactionsEur":"2.634","err":"0.08072307587277217"},
-      {"time":"Mar 2017","type":"Pseudomonas fluorescens","sumTransactionsEur":"464.5636","err":"0.08072307587277215"},
-      {"time":"Mar 2017","type":"Pseudoalteromonas SM9913","sumTransactionsEur":"57.917","err":"0.08072307587277215"},
-      {"time":"Mar 2017","type":"Escherichia coli","sumTransactionsEur":"932.4","err":"0.0807230758727722"}]
-
-
     return new Promise((resolve, reject) => {
         try{
           this.http.get(this.url + "/projects/" + projectId + "/analysis/typeTotals").subscribe(
@@ -156,15 +142,6 @@ export class ApiService {
   }
 
   getAnalysisSaldo(projectId : number){
-
-
-    let sankeyData = [
-      {"source":"Uli","target":"Becci","value":"41.457"},
-      {"source":"Uli","target":"Tim","value":"5.254"},
-      {"source":"Lara","target":"Tim","value":"10"},
-      {"source":"Tim","target":"Ina","value":"5"}
-      ]
-
 
     return new Promise((resolve, reject) => {
         try{
@@ -232,6 +209,10 @@ export class ApiService {
         }
         
     });
+  }
+
+  getUserProfileBase(userId : string){
+    return this.http.get(this.url + "/users/profile/" + userId)
   }
 
   handleAPIError(error){

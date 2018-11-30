@@ -3,9 +3,17 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content class="content-box" >
 
-    <ion-slides class="analysis-slide-container" #analysisSlides  >
+    <div class="analysis-slide-container">
+            <chart-donut *ngIf="!checkIsLandscape()" (typeSelected)="handleTypeSelected($event)" [donutConfig]="donutConfig" [data]="donutData" ></chart-donut>
+    </div>
+
+       
+
+    <!--
+<ion-slides class="analysis-slide-container" #analysisSlides  >
 
       <ion-slide class="analysis-slide">
           <chart-donut *ngIf="!checkIsLandscape()" (typeSelected)="handleTypeSelected($event)" [donutConfig]="donutConfig" [data]="donutData" ></chart-donut>
@@ -16,6 +24,8 @@
       </ion-slide>
       
     </ion-slides>
+    -->
+    
 
 
 </ion-content>

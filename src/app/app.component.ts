@@ -23,6 +23,7 @@ export class MyApp {
 
   rootPage: any = FirstRunPage;
   activePage : any; 
+  loginPage : any;
 
   pages: Array<{title: string, component: any}>;
 
@@ -41,9 +42,13 @@ export class MyApp {
       { title: 'MENU_EXPENSE', component: "ExpensesPage" },
       { title: 'MENU_PROJECT', component: "ProjectsPage" },
       { title: 'MENU_CATEGORY', component: "TypesPage" },
-      { title: 'MENU_LOGIN', component: "LoginPage" },
-      { title: 'MENU_SETTINGS', component: "SettingsPage" },
+     // { title: 'MENU_SETTINGS', component: "SettingsPage" },
     ];
+
+    this.loginPage = {
+      title : "MENU_LOGIN", 
+      component: "LoginPage"
+    }
 
     this.initTranslate();
 
@@ -99,7 +104,14 @@ export class MyApp {
     //this.nav.push(page.component);
   }
 
+  goToLogin(){
+
+   this.activePage = this.loginPage.component;
+   this.nav.setRoot(this.loginPage.component);
+  }
+
   logOut(){
-    console.log("Log out")
+    this.auth.logout();
+    this.nav.setRoot("LoginPage")
   }
 }

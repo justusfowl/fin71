@@ -2,6 +2,8 @@ import { Observable } from 'rxjs';
 import 'rxjs/operators';
 import { Injectable, Injector } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
+
 
 @Injectable()
 export class AuthIntercept implements HttpInterceptor {
@@ -22,19 +24,17 @@ export class AuthIntercept implements HttpInterceptor {
     // Make a clone of the request then append the Authorization Header
     // Other way of writing :
     // return req.clone({headers: req.headers.set('Authorization', this.authService.token )});
-    //const auth = this.inj.get(AuthService);
-    const now = Date.now();
+    const auth = this.inj.get(AuthService);
 
-    let token = 'harald'; 
-
-    /*
+    let token = "";
+    
     if (typeof(auth.getToken()) != 'string'){
       token 
       console.log("API Call without token")
     }else{
       token = auth.getToken();
     }
-    */
+    
     
     return req.clone({ setHeaders: { 'Authorization' : "Bearer " + token } });
     

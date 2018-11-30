@@ -39,7 +39,7 @@
           <div class="expense">
             {{util.formatMoney(exp.transactionAmt)}}
             <div class="expense-date">
-                {{util.formatExpDate(exp.transactionCreatedAt)}}
+              {{exp.transactionTitle}} / {{util.formatExpDate(exp.transactionCreatedAt)}}
             </div>
 
             <ion-icon class="item-edit" name="more" (click)="editExpenseItem(exp)"></ion-icon>
