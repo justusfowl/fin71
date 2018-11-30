@@ -1,0 +1,42 @@
+{
+  "BACK_BUTTON_TEXT": "Back",
+  "SAVE" : "Save", 
+  "LOGOUT" : "Logoff", 
+  "CATEGORIES" : "Categories",
+  "PROJECTS" : "Projects",
+  "TITLE" : "Title",
+  "NO_USER_RESULTS" : "No users found",
+
+  "TYPE_TITLE": "Title",
+  "PLACEHOLDER_FILL_TYPE_TITLE" : "Please add title",
+
+  "DONUT_TOTAL" : "Total",
+  "PAYER_DESC" : "Pays", 
+  "RECEIVER_DESC" : "Rececives", 
+
+  "PAYER_ME" : "I",
+  "PAY_FOR" : "for",
+  "PAYER_FOR" : "pays: ",
+  "PAYER_FOR_ME" : "pay: ",
+
+  "MENU_HOME" : "Home", 
+  "MENU_EXPENSE" : "Expense", 
+  "MENU_PROJECT" : "Projects", 
+  "MENU_CATEGORY" : "Categories", 
+  "MENU_LOGIN" : "Login", 
+  "MENU_SETTINGS" : "Settings", 
+
+  "TRANSACTION" : "Transaction", 
+  "TRANSACTION_ORIG_AMT" : "Amount domestic currency", 
+  "TRANSACTION_ORIG_CURRENCY" : "Domestic currency",
+  "TRANSACTION_PROJECT" : "Project",
+  "TRANSACTION_TYPE" : "Category",
+
+  "DAY_1": "Monday",
+  "DAY_2": "Tuesday",
+  "DAY_3": "Wednesday",
+  "DAY_4": "Thursday",
+  "DAY_5": "Friday",
+  "DAY_6": "Saturday",
+  "DAY_7": "Sunday"
+}

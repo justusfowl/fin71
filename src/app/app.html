@@ -1,16 +1,29 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
+  <ion-content class="side-menu" >
+    <div class="avatar-container">
+
+        <ion-avatar>
+          <img [src]="auth.userAvatarPath">
+          <div class="username">
+            @{{auth.userName}}
+          </div>
+        </ion-avatar>
+  
+      </div>
+      
+    <div class="menu-itm-container">
+
+      <div class="menu-itm" menuClose *ngFor="let p of pages" (click)="openPage(p)" [class.activated]="p.component == activePage">
+          {{p.title  | translate}}
+      </div>
+
+      <div class="menu-itm end" menuClose (click)="logOut()">
+          {{'LOGOUT' | translate}}
+      </div>
+
+    </div>
+
   </ion-content>
 
 </ion-menu>

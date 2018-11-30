@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list-header>
+    
+      Application settings
+    
+    </ion-list-header>
+
+
+    
+      <ion-list *ngIf="displayDevDetails">
+
+      <ion-item>
+        <ion-label>Appversion: {{config.getAppVersion()}}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>TutorialShown: {{config.tutorialShown}}</ion-label>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Expires at: {{auth.expiresAt}}</ion-label>
+      </ion-item>      
+
+      <ion-item>
+        <ion-label>Now : {{now}}</ion-label>
+        
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Get authstatus: </ion-label>
+      </ion-item>         
+
+      <ion-item>
+        <ion-label>Env: {{config.getEnvironment()}}</ion-label>
+        
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-label>APIBase: {{config.getAPIBase()}} </ion-label>
+      </ion-item>
+
+        
+      <ion-item text-wrap>
+        <ion-label>Network: {{config.isOnline}},  {{config.networkType}}, {{config.downloadSpeed}} </ion-label>
+      </ion-item>
+
+
+
+    </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,9 @@
+@import "../../theme/variables";
+
+app-create-project{
+    .accept-btn{
+        background-color: transparent; 
+        color: $secondaryColor; 
+        font-size: 20px; 
+    }
+}

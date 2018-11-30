@@ -1,18 +1,158 @@
-<ion-header>
+
+<ion-header ion-fixed no-bounce no-scroll class="project-container">
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+      <ion-buttons left start>
+        <button ion-button menuToggle class="menu-btn">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons> 
+
+    
+
+    <ion-select right end class="project-select" (ionChange)="onProjectChange($event)"
+    [(ngModel)]="selectedProject" 
+      interface="popover" 
+      [placeholder]="selectedProject.projectTitle">
+
+      <ion-option *ngFor="let p of projects; let i=index;" [value]="p" >
+        {{p.projectTitle}}
+      </ion-option>
+
+    </ion-select>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content ion-fixed no-bounce no-scroll>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<!-- {{util.formatMoney(amount)}} -->
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<div class="figure-amount-container" [class.success]="successTransaction">
+
+  <div class="currency" (click)="openCurrencySelect(projectSlides)">
+    {{selectedCurrency.symbol}}
+  </div>
+
+  <div class="large">
+    {{util.getPrimeFigure(util.formatMoneyFromCentString(amount))}}
+  </div>
+
+  <div class="cents">
+      {{util.getCentsFigure(util.formatMoneyFromCentString(amount))}}
+  </div>
+
+  <div  
+    class="contributor-container-backdrop"
+    [class.activated]="contribClicked" (click)="focusout($event)">
+  </div>
+
+  <div class="payer-container" *ngIf="false">
+
+    {{getPayer()}}
+
+  </div>
+
+  <div class="contributor-container" [class.activated]="contribClicked"  >
+
+      <div class="contrib-itm add" (click)="focus($event)">
+
+        <div class="add-icon">{{'PAY_FOR' | translate }}</div>
+  
+      </div>
+      
+    <div class="contrib-itm" 
+      *ngFor="let contrib of selectedProject.contributors; let i=index;"
+      [class.inactive]="!checkIfContribSelected(contrib)" 
+      (swipe)="swipe($event)"
+      >
+
+      <ion-icon 
+        class="remove-contrib" 
+        *ngIf="checkIfContribSelected(contrib) && selectedContributors.length > 1" 
+        name="close"
+        (click)="removeContributor(contrib)"></ion-icon>
+
+      <img *ngIf="contrib.userAvatarPath" class="avatar" (click)="addContributor(contrib)" [src]="contrib.userAvatarPath">
+      
+      <div *ngIf="!contrib.userAvatarPath" (click)="addContributor(contrib)" class="avatar ">
+        <div class="text" >
+            {{contrib.userName.substring(0,2).toUpperCase()}}
+        </div>
+          <!-- <ion-icon name="person"></ion-icon> -->
+      </div>
+
+      <div class="userName"
+      (click)="addContributor(contrib)">
+        @{{contrib.userName}}
+      </div>  
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="type-container">
+    <div *ngFor="let t of types; let i = index;" 
+    [class.selected]="i == selectedTypeIndex" 
+    class="type"
+    (click)="selectType(i)">
+    
+      <div>
+        <div class="title">
+            <ion-icon [name]="t.typeIcon"></ion-icon>
+            <p *ngIf="i == selectedTypeIndex">{{t.typeTitle}}</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="pad-container">
+  <div class="pad-row">
+    <div class="pad bb br" (click)="handleDigitPressend(1)">
+      1
+    </div> 
+    <div class="pad bb" (click)="handleDigitPressend(2)">
+        2
+    </div>
+    <div class="pad bb bl" (click)="handleDigitPressend(3)">
+        3
+    </div>
+  </div>
+
+  <div class="pad-row">
+      <div class="pad bb br" (click)="handleDigitPressend(4)">
+        4
+      </div> 
+      <div class="pad bb " (click)="handleDigitPressend(5)">
+          5
+      </div>
+      <div class="pad bb bl" (click)="handleDigitPressend(6)">
+          6
+      </div>
+  </div>
+  <div class="pad-row">
+      <div class="pad br " (click)="handleDigitPressend(7)">
+        7
+      </div> 
+      <div class="pad " (click)="handleDigitPressend(8)">
+          8
+      </div>
+      <div class="pad bl" (click)="handleDigitPressend(9)">
+          9
+      </div>
+  </div>
+  <div class="pad-row">
+      <div class="pad bt br" (click)="handleDigitPressend('<<')">
+          <<
+        </div> 
+      <div class="pad bt br" (click)="handleDigitPressend(0)">
+        0
+      </div>
+      <div class="pad bt bl acc" [class.disabled]="!checkAmount()" (click)="addTransaction()">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </div>
+  </div>
+
+</div>
+
 </ion-content>

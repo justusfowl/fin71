@@ -1,0 +1,131 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons  start>
+            <button ion-button menuToggle class="menu-btn">
+              <ion-icon name="menu"></ion-icon>
+            </button>
+          </ion-buttons> 
+      <ion-title >{{'PROJECTS' | translate}}</ion-title>
+          <!--
+            <div class="add-btn" (click)="createProject($event)">
+                <button ion-button icon-only >
+                  <ion-icon name="add"></ion-icon>
+                </button>
+              </div>
+          -->
+     
+
+        <ion-buttons right end (click)="createProject($event)">
+            <button ion-button icon-only>
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-buttons> 
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="getProjects($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <div class="projects-container">
+
+      <div class="project-item" *ngFor="let p of projects; let i=index;" >
+
+        <div class="project-header" >
+
+          <div class="title" (click)="projectClick($event, p)">
+              {{p.projectTitle}}
+          </div>
+
+          <div class="details">
+
+            <div class="members" *ngIf="p.contributors.length > 1">
+                +{{p.contributors.length -1}} <ion-icon name="person" ></ion-icon>
+            </div>
+
+          </div>
+          
+          <ion-icon class="save-icon" name="checkmark" (click)="saveProject($event, p)"></ion-icon>
+
+        </div>
+
+        <div class="project-settings">
+
+          <ion-item>
+            <ion-label color="primary" floating>{{'TITLE' | translate}}</ion-label>
+            <ion-input [(ngModel)]="selectedProjectTitle"></ion-input>
+          </ion-item>
+
+          <ion-item>
+
+            <tag-input 
+              [onTextChangeDebounce]="400"
+              [placeholder]="contributorsPlaceholder" 
+              [ngModel]="selectedProjectContributors" 
+              [identifyBy]="'userId'" 
+              [displayBy]="'userName'"
+              (onAdd)="addProjectContrib($event, p)"
+              (onRemove)="removeProjectContrib($event, p)"
+              (onTextChange)="getUserSearch($event)"
+              >
+              <tag-input-dropdown 
+              [identifyBy]="'userId'" 
+              [displayBy]="'userName'"
+                [autocompleteItems]="autoCompleteItems"
+              >
+              </tag-input-dropdown>
+            </tag-input>
+          
+          </ion-item>
+
+        </div>
+        
+      </div>
+
+    <!--
+    <div class="project-item" *ngFor="let p of projects; let i=index;" 
+      [class.selected]="i == selectedProjectIndex">
+
+      <div class="project-row" (click)="selectProject(i)">
+          <ion-icon class="project-arrow" name="arrow-forward"></ion-icon>
+          <div class="title">{{p.projectTitle}}</div> 
+      </div>
+
+      <div class="project-settings">
+
+          <ion-label position="floating">{{'TITLE' | translate}}</ion-label>
+          <ion-input type="text" (ionBlur)="updateProject(p)" [(ngModel)]="projects[i].projectTitle"></ion-input> 
+
+          <div class="divider"></div>
+
+          <div class="contrib-container">
+            <div class="contributor" *ngFor="let c of p.contributors;" [hidden]="checkIfProjectOwner(p, c)"> 
+
+                <ion-chip >
+                    <ion-avatar *ngIf="c.getUserAvatarPath()">
+                      <img [src]="c.getUserAvatarPath()">
+                    </ion-avatar>
+                    <ion-label>{{c.userName}}</ion-label>
+                    <button ion-button clear color="dark" (click)="removeContributor(p, c)">
+                      <ion-icon name="close-circle"></ion-icon>
+                    </button>
+                  </ion-chip>
+            </div>
+          </div>
+          
+          <ion-searchbar placeholder="Contributors"
+          [(ngModel)]="searchTerm"
+            debounce="1000" (ionInput)="searchChange($event, p)"> </ion-searchbar>
+
+      </div>
+    </div>
+    -->
+
+
+    
+
+  </div>
+
+</ion-content>

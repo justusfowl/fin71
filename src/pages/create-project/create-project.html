@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-item>
+      <ion-input type="string" placeholder="Title" [(ngModel)]="projectTitle" (keypress)="eventHandler($event.keyCode)"></ion-input>
+      
+      <button class="accept-btn" ion-button icon-only item-end (click)="closeAndSave()">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      
+  </ion-item>
+</ion-content>

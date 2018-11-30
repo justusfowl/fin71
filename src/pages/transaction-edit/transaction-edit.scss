@@ -1,0 +1,37 @@
+
+app-transaction-edit{
+
+    ion-item{
+        background-color: transparent !important; 
+    }
+
+    .figure-amount-container{
+        height: 20vh; 
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        align-items: center; 
+    }
+    
+    .figure-amount-container .currency{
+        padding-right: 10px; 
+        font-size: 200%;
+    }
+    
+    .figure-amount-container .large{
+        font-size: 400%; 
+    }
+    
+    .figure-amount-container .cents{
+        font-size: 16px; 
+        padding-left: 10px; 
+    }
+    
+    .save-btn{
+        color: white; 
+    }
+    
+}
+
+
+

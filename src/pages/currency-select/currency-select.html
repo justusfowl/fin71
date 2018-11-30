@@ -1,0 +1,22 @@
+
+<div class="cus-modal-background" [class.leave]="leave" (click)="closeModal()">
+</div>
+
+
+<div class="cus-modal-wrapper">
+     
+      <ion-content>
+      
+          <ion-list>
+            <ion-item class="currency-itm" *ngFor="let c of currencies;" [class.selCur]="checkIfIsSelected(c)"  >
+              <ion-label 
+              (click)="selectCurrency(c)" 
+              >{{c.val}}</ion-label>
+              
+            </ion-item>
+          </ion-list>
+      
+      </ion-content>
+      
+</div>
+

@@ -1,0 +1,26 @@
+
+<div class="cus-modal-background" [class.leave]="leave"  (click)="closeModal()">
+</div>
+
+<div class="cus-modal-wrapper">
+   
+    <ion-content>
+
+
+      <form [formGroup]="typeItemForm">
+          <ion-item>
+            <ion-label position="floating">{{'TYPE_TITLE' | translate}}</ion-label>
+            <ion-input [placeholder]="'PLACEHOLDER_FILL_TYPE_TITLE' | translate" type="text" formControlName="typeTitle"></ion-input>
+          </ion-item>
+      </form>
+
+     <div class="icon-select-container">
+       <div class="icon-itm" [class.selected]="ic.icon == typeItemForm.get('typeIcon').value" 
+       *ngFor="let ic of icons;"
+       (click)="selectIcon(ic)">
+          <ion-icon [name]="ic.icon"></ion-icon>
+       </div>
+     </div> 
+    
+    </ion-content>
+</div>

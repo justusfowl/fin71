@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar>
+
+      <ion-buttons left start (click)="closeModal()">
+        <button ion-button class="menu-btn">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons> 
+      
+    <ion-title class="universal-title" >{{'TRANSACTION' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="figure-amount-container">
+
+        <div class="currency">
+          {{selectedCurrency.symbol}}
+        </div>
+    
+        <div class="large">
+          {{util.getPrimeFigure(resAmount)}}
+        </div>
+    
+        <div class="cents">
+            {{util.getCentsFigure(resAmount)}}
+        </div>
+    
+      </div>
+
+    <form [formGroup]="transactionItemForm">
+
+        <ion-list>
+
+            <ion-item [hidden]="!itemOwner">
+              <ion-label floating >{{'TRANSACTION_ORIG_AMT' | translate }}</ion-label>
+              <ion-input type="text" formControlName="transactionAmtOrig"></ion-input>
+            </ion-item>
+
+            <ion-item [hidden]="!itemOwner">
+
+                <ion-label floating >{{'TRANSACTION_ORIG_CURRENCY' | translate }}</ion-label>
+              
+
+                <ion-select formControlName="transactionCurOrig">
+      
+                  <ion-option *ngFor="let c of currencies; let i=index;" [value]="c.val" >
+                    {{c.val}}
+                  </ion-option>
+      
+                </ion-select>
+              </ion-item>
+
+            <ion-item [hidden]="!itemOwner">
+
+              <ion-label floating>{{'TRANSACTION_PROJECT' | translate }}</ion-label>
+
+              <ion-select *ngIf="projects.length > 0" formControlName="projectId" [placeholder]="projectId">
+    
+                <ion-option *ngFor="let p of projects; let i=index;" [value]="p.projectId" >
+                  {{p.projectTitle}}
+                </ion-option>
+    
+              </ion-select>
+            </ion-item>
+            
+
+            <ion-item [hidden]="!itemOwner">
+
+              <ion-label floating>{{'TRANSACTION_TYPE' | translate }}</ion-label>
+
+              <ion-select *ngIf="types.length > 0" formControlName="typeId">
+    
+                <ion-option *ngFor="let t of types; let i=index;" [value]="t.typeId" >
+                  {{t.typeTitle}}
+                </ion-option>
+    
+              </ion-select>
+            </ion-item>
+
+          
+          </ion-list>
+
+    </form>
+
+
+   
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <button class="save-btn" ion-button  full (click)="saveTransaction()"  color="secondary">Save</button>
+  </ion-toolbar>
+</ion-footer>

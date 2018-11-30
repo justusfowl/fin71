@@ -1,0 +1,27 @@
+<ion-content>
+
+    <ion-list>
+
+        
+
+        <ion-item class="contributor" *ngFor="let u of userArray; let i=index; ">
+
+            <ion-avatar item-start>
+              <img class="avatar" [src]="u.getUserAvatarPath()" *ngIf="u.getUserAvatarPath()">
+              <ion-icon class="avatar-icon" name="person" *ngIf="!u.getUserAvatarPath()"></ion-icon>
+            </ion-avatar>
+
+          <ion-label class="userName" >{{u.userName}}</ion-label>
+
+          <button ion-button item-end class="contrib-btn" (click)="clickUser(u)">
+            <ion-icon class="avatar-icon" name="checkmark" 
+             *ngIf="checkIfUserIsContributor(u)"></ion-icon>
+            <span *ngIf="!checkIfUserIsContributor(u)" >Add</span>
+          </button>
+        </ion-item>
+        
+      </ion-list>
+
+      <p *ngIf="userArray.length == 0" class="noResults" >{{'NO_USER_RESULTS' | translate}}</p>
+
+</ion-content>

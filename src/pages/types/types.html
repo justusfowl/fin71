@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left start>
+          <button ion-button menuToggle class="menu-btn">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons> 
+    <ion-title>{{'CATEGORIES' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="getTypes($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <div class="types-container">
+
+    <div class="type-item box" *ngFor="let t of types; let i=index; "  >
+        <ion-icon class="large-icon" [name]="t.typeIcon"></ion-icon>
+        <div class="title">{{t.typeTitle}}</div>
+        <ion-icon class="edit-type-item" (click)="editType(t, i)" name="more"></ion-icon>
+        <ion-icon class="remove-type-item" (click)="removeItem($event, t)" name="trash"></ion-icon>
+    </div>
+
+    <div class="type-item add" (click)="createType()">
+        <ion-icon name="add"></ion-icon>
+        <div class="title"> </div>
+        
+    </div>
+
+  </div>
+
+</ion-content>

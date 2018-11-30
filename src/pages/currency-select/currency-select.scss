@@ -1,0 +1,18 @@
+@import "../../theme/variables";
+
+app-currency-select{
+    .cus-modal-background{
+        background-color: rgba(0, 0, 0, 0.459);
+        opacity: 1;
+        transition: 0.2s;
+    }
+
+    .cus-modal-background.leave{
+        opacity: 0;
+    }
+
+    .currency-itm.selCur{
+        background-color: $secondaryColor;
+        color: white;
+    }
+}

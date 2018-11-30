@@ -1,0 +1,74 @@
+
+@import "../../theme/variables";
+
+app-types{
+
+    .types-container{
+        display: flex; 
+        flex-wrap: wrap;
+    }
+    
+    .type-item{
+        background-color: white; 
+        width: 48vw; 
+        height: 48vw; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center; 
+        margin: 1vw; 
+        position: relative; 
+        color: $secondaryColor;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+
+    .type-item.box{
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    
+    .type-item .remove-type-item,
+    .type-item .edit-type-item{
+        position: absolute; 
+        bottom: 5px; 
+        font-size: 25px; 
+    }
+
+    .type-item .large-icon{
+        opacity: 1; 
+        font-size: 65px;
+    }
+
+    .type-item .title{
+        color: #343434;
+        font-weight: 100; 
+        font-size: 17px; 
+    }
+
+    .type-item .remove-type-item{
+        right: 10px;
+        color: $grayColor;
+    }
+    
+    .type-item .edit-type-item{
+        left: 5px; 
+        color: $grayColor;
+        transform: rotate(90deg);
+    }
+    
+    .type-item.add{
+        border: 1px dashed rgba($grayColor, 0.5);
+    }
+    
+    .type-item:active{
+        background-color: rgba($grayColor, 0.5);
+    }
+    
+    
+    .type-item ion-icon{
+        font-size: 50px; 
+    }
+    
+    .type-item .title{
+    
+    }
+}

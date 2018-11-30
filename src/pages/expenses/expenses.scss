@@ -1,0 +1,124 @@
+
+@import "../../theme/variables";
+
+app-expenses{
+
+    .timeline{
+        position: absolute; 
+        height: 60vh; 
+        bottom: 0;
+        border: 1px solid #d5d5d5;
+        margin-left: 10vw;
+    }
+
+    .expense-slide{
+        display: flex; 
+        flex-direction: column; 
+    }
+
+    .project-card{
+        position: relative;
+        width: 80vw; 
+        margin: 10vw; 
+        padding: 30px; 
+        text-align: left; 
+        background-color: $secondaryColor; 
+        box-shadow: 0 1px 3px rgba($secondaryColor,0.12), 0 1px 2px rgba($secondaryColor,0.24);
+    }
+
+    .project-card .btn-analysis{
+        position: absolute; 
+        bottom: 10px; 
+        right: 10px; 
+        padding: 5px; 
+        color: white;
+        background-color: unquote('#ffffff40');
+        border-radius: 5px; 
+    }
+
+    .project-card .title{
+        color: white; 
+        font-size: 15px;
+    }
+
+    .project-card .expense{
+        color: white; 
+        font-size: 40px;
+        font-weight: 100; 
+    }
+
+    .expense-container{
+        width: 100%; 
+        max-height: 60vh;
+        margin-left: 8.5vw;
+        overflow-y: scroll; 
+    }
+
+    .expense-container .selector{
+        border: 1px solid $secondaryColor; 
+        background-color: white; 
+        border-radius: 50%; 
+        width: 4vw; 
+        height: 4vw; 
+    }
+
+    .expense-container .expense-itm{
+        display: flex; 
+        align-items: center;
+        text-align: left; 
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%; 
+    }
+
+    .expense-itm .expense{
+        text-align: left; 
+        margin-left: 10px; 
+    }
+
+    .expense-itm .expense-date{
+        text-align: left; 
+        font-size: 14px; 
+        font-weight: 100; 
+    }
+
+    .expense-itm .item-edit{
+        position: absolute;
+        transform: rotate(90deg);
+        top: 10px; 
+        right: 20vw;
+        color: #aaaaaa;
+    }
+
+
+
+    .footer-fader{
+        z-index: 100; 
+        position: absolute; 
+        width: 100%; 
+        height: 10vh; 
+        bottom: 0; 
+        background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    }
+    
+    .slide-zoom{
+        height: 100%; 
+    }
+
+
+    
+}
+
+/deep/ .swiper-container-3d .swiper-slide-shadow-right{
+        
+    background-image: linear-gradient(to right, 
+    rgba(0,0,0,0), rgba(0,0,0,0)) !important;
+}
+
+/deep/ .swiper-container-3d .swiper-slide-shadow-left{
+    background-image: linear-gradient(to right, 
+    rgba(0,0,0,0), rgba(0,0,0,0)) !important;
+}

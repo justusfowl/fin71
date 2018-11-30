@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left start>
+          <button ion-button menuToggle class="menu-btn">
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons> 
+
+    <ion-title>{{'MENU_EXPENSE' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content slot="fixed">
+
+  <div class="timeline">
+
+  </div>
+
+  <ion-slides #headerSlides *ngIf="projects"  (ionSlideDidChange)="slideChanged(headerSlides)">
+    <ion-slide class="expense-slide" *ngFor="let p of projects;let i=index;">
+
+      <div class="project-card" >
+
+        <div class="title">{{p.projectTitle}}</div>
+        <div class="expense">{{util.formatMoney(p.sumTransactionsEur)}}</div>
+
+        <ion-icon *ngIf="p.projectId" class="btn-analysis" name="trending-up" (click)="goToProjectAnalysis(p)"></ion-icon>
+
+      </div>
+
+      <ion-spinner class="exp-loader" name="crescent" *ngIf="isLoadingTransactions"></ion-spinner>
+
+      <div class="expense-container" *ngIf="!isLoadingTransactions && headerSlides.getActiveIndex() == i">
+
+        <div class="expense-itm" *ngFor="let exp of transactions; let i=index;">
+
+          <div class="selector"></div>
+
+          <div class="expense">
+            {{util.formatMoney(exp.transactionAmt)}}
+            <div class="expense-date">
+                {{util.formatExpDate(exp.transactionCreatedAt)}}
+            </div>
+
+            <ion-icon class="item-edit" name="more" (click)="editExpenseItem(exp)"></ion-icon>
+          </div>
+
+        </div>
+
+      </div>
+    </ion-slide>
+    
+  </ion-slides>
+
+  <div class="footer-fader">
+
+  </div>
+    
+
+</ion-content>

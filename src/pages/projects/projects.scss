@@ -1,0 +1,200 @@
+
+@import "../../theme/variables";
+
+app-projects{
+
+    .add-btn{
+        float: right; 
+        margin-right: 3px;
+    }
+
+    .scroll-content.fixed-view{
+        overflow: hidden;
+    }
+
+    .projects-container{
+        
+    }
+
+    .project-settings{
+        max-height: 1px; 
+        transition: all 0.5s;
+        overflow: hidden; 
+        transition-delay: 0.2s;
+    }
+
+    .project-item.full-view .project-settings{
+        max-height: 500px;
+    }   
+
+    .project-item{
+        position: relative; 
+        min-height: 100px;
+        margin: 10px; 
+        background-color: white; 
+        transition: all 0.5s;
+        border-left: 4px solid $secondaryColor;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        
+    }
+
+    .project-header{
+        position: relative; 
+        padding: 20px; 
+    }
+
+    .project-header .title{
+        font-size: 22px; 
+        transition: 0.5s;
+        font-weight: 100; 
+    }
+
+    .project-header .members{
+        margin-top: 10px; 
+    }
+
+    .details{
+        opacity: 1; 
+        transition: 0.5s;
+        transition-delay: 0.1s;
+    }
+
+    .save-icon{
+        font-size: 30px; 
+        position: absolute; 
+        top: 15px; 
+        right: 15px; 
+        opacity: 0; 
+        display: none; 
+        transition: 0.5;
+        transition-delay: 0.1s;
+    }
+
+    .project-item.full-view{
+
+        .project-header{
+            max-height: 0px; 
+            z-index: 99999; 
+            padding: unset; 
+        }
+
+        .project-header .title{
+            opacity: 0;
+        }
+
+        .details{
+            opacity: 0;
+        }
+
+        .save-icon{
+            opacity: 1; 
+            display: block;
+        }
+
+        box-shadow: unset;
+        border-left: 1px solid $secondaryColor;
+
+    }
+
+
+    .project-item.full-view{
+        margin: unset !important;
+    }
+
+    /deep/ .ng2-tag-input{
+        border-bottom: unset !important;
+    }
+
+    /deep/ tag[_ngcontent-c0]:not(.readonly):not(.tag--editing):active{
+        background-color: $secondaryColor;
+    }
+
+
+        
+    /*
+    .project-row{
+        width: 100vw; 
+        display: flex;
+        flex-direction: row;
+        justify-content: left; 
+        align-items: center; 
+        padding: 25px; 
+        border-bottom: 1px solid rgba($primaryColor, 0.5);
+    }
+
+    .project-arrow{
+        margin-right:10px; 
+        transition: 0.5s linear;
+    }
+
+    .project-item.selected .project-row{
+        background-color: rgba($secondaryColor, 1);
+        font-weight: 600;
+    }
+
+    .project-item.selected .project-arrow{
+        transform: rotate(90deg);
+    }
+
+    .project-settings {
+        margin-left: 10vw; 
+        padding: 0px 0px 0px 20px; 
+        max-height: 0; 
+        transition: max-height 0.5s linear; 
+        overflow: hidden;
+        background-color: rgba($grayColor, 0.4);
+    }
+
+    .project-item.selected .project-settings{
+        max-height: 1000px; 
+    }
+
+    .divider{
+        width: 100%; 
+        height: 1px; 
+        border-bottom: 1px solid rgba($primaryColor, 0.5);
+    }
+
+    ion-label{
+        font-size: 12px; 
+    }
+
+    .contrib-container{
+        margin: 10px 5px 0px 0px;
+        display: flex; 
+        flex-wrap: wrap; 
+        
+    }
+
+    .contributor{
+        display: inline-flex; 
+        position: relative; 
+        width: auto;
+        background-color: white; 
+        border-radius: 5px; 
+        padding: 5px; 
+        margin: 5px;
+    }
+
+    .contributor .avatar, 
+    .contributor .avatar-icon{
+        width: 20px; 
+        height: 20px; 
+    }
+
+
+    .contributor .name{
+        display: flex; 
+    }
+
+    .contributor .remove-icon{
+        position: absolute;
+        right: -10px; 
+        top: -7px;
+        background-color: white; 
+        border-radius: 50%; 
+        
+    }
+    */
+
+}

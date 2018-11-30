@@ -1,0 +1,29 @@
+
+
+@import "../../theme/variables";
+
+
+app-search-user-results{
+    .contributor .avatar-icon{
+        height: 30px; 
+        width: 30px; 
+        border-radius: 50%; 
+        background-color: rgba($secondaryColor, 1);
+        
+    }
+    
+    
+    .contributor .userName{
+        margin-left: 5px; 
+    }
+    
+    .noResults{
+        width: 100%; 
+        text-align: center; 
+        font-size: 12px; 
+    }
+    
+    .contrib-btn{
+        background-color: transparent;
+    }
+}

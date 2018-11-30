@@ -1,0 +1,72 @@
+
+
+@import "../../theme/variables";
+
+
+app-create-type{
+
+    .item .item-inner{
+        border: unset !important; 
+        
+    }
+
+    .item .label{
+        border-right: 1px solid #d1d1d1;
+        padding-right: 20px; 
+        color: gray; 
+        margin-top: 10px; 
+        font-weight: 100; 
+    }
+
+    ion-input .text-input{
+        font-weight: 100; 
+    }
+
+    .icon-select-container{
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto; 
+        padding: 10px; 
+        margin-top: 10px; 
+    }
+    
+    .icon-select-container::-webkit-scrollbar{
+        display: none; 
+    }
+    
+    .icon-itm{
+        font-size: 40px;
+        padding: 5px; 
+        margin: 1px; 
+        display: flex; 
+        color: $grayColor; 
+        border-radius: 4px; 
+        width: 50px;
+        transition: 0.2s;
+    }
+    
+    .icon-itm.selected{
+        background-color: white;
+        color: $secondaryColor ; 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transform: scale(1.2);
+    }
+
+    .cus-modal-background{
+        background-color: rgba(0, 0, 0, 0.459);
+        opacity: 1;
+        transition: 0.2s;
+    }
+
+    .cus-modal-background.leave{
+        opacity: 0;
+    }
+
+    .cus-modal-wrapper{
+        height: 28vh; 
+        width: 100vw; 
+        bottom: 0;
+        position: absolute;
+    }
+}
+
